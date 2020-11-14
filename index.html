@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;500&display=swap"
+        rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet" type="text/css" media="screen">
     <link rel="stylesheet" href="css/master.css" type="text/css" media="screen">
     <title>Evan's Favourite Things</title>
@@ -14,18 +15,23 @@
 
 <body>
     <main id="main">
-        <h1 class="hidden">MY FAVOURITE THINGS</h1>
-        <h2>THINGS THAT GOT ME FEELING REAL GOOD</h2>
-        <p>These are the things that got me feeling real happy everytime they pop up. Borrowing this line from Marie
-            Kondo,
-            and adding my little touches: "These ones spark joy!".</p>
-
-        <section class="itemsSection"></section>
+        <header>
+            <h1 class="hidden">MY FAVOURITE THINGS</h1>
+            <h2>THINGS THAT GOT ME FEELING REAL GOOD</h2>
+            <p>These are the things that got me feeling real happy everytime they pop up. Borrowing this line from Marie
+                Kondo,
+                and adding my little touches: "These ones spark joy!". <br> <span class="bold">Click on the images to
+                    find
+                    out about them!</span></p>
+        </header>
+        <section id="itemsSection"></section>
         <template id="itemsContainer">
             <div class="item">
                 <img src="" alt="item">
-                <h3></h3>
-                <p></p>
+                <div class="itemInfo unExpanded">
+                    <h3></h3>
+                    <p></p>
+                </div>
             </div>
         </template>
     </main>

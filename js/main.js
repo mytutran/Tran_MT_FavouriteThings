@@ -1,22 +1,41 @@
 import { fetchData, postData } from "./modules/DataMiner.js";
 (() => {
 
+
     function retrieveItems(event) {
-        if (!event.target.id) {
+        let currentID = event.target.id,
+            currentPick = event.target.parentNode,
+            itemInfo = currentPick.childNodes[3],
+            infoExpanded = false;
+        if (!currentID) {
             return
         }
-        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
+        if (!infoExpanded) {
+            itemInfo.classList.add("expanded");
+            itemInfo.classList.remove("unExpanded");
+            infoExpanded = true;
+        } else {
+            infoExpanded = false;
+            itemInfo.classList.remove("expanded");
+            itemInfo.classList.add("unExpanded");
+        }
+        debugger;
+        // fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
     }
 
     function renderThumbnails(thumbs) {
-        let itemSection = document.querySelector('.itemsSection'),
+        let itemSection = document.querySelector('#itemsSection'),
             itemTemplate = document.querySelector('#itemsContainer').content;
 
         for (let item in thumbs) {
             let currentItem = itemTemplate.cloneNode(true),
-                currentImage = currentItem.querySelector('.item').children;
-            currentImage[0].src = `images/${thumbs[item].image}`;
-            currentImage[0].id = thumbs[item].id;
+                currentContent = currentItem.querySelector('.item').children;
+            currentContent[0].src = `images/${thumbs[item].image}`;
+            currentContent[0].id = thumbs[item].id;
+            let itemName = currentContent[1].querySelector('h3'),
+                itemDesc = currentContent[1].querySelector('p');
+            itemName.textContent = `${thumbs[item].name}`;
+            itemDesc.textContent = `${thumbs[item].description}`;
 
             itemSection.appendChild(currentItem);
         }
