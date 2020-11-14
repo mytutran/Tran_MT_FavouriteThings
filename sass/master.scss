@@ -1,3 +1,4 @@
-@import 'modules/_mediaqueries.scss';
 @import 'modules/_vars.scss';
 @import 'modules/_main.scss';
+// gotta be here for media queries to work apparently :P 
+@import 'modules/_mediaqueries.scss';

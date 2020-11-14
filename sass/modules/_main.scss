@@ -72,6 +72,22 @@ span.bold {
     }
     img {
         border-radius: 20px;
+        cursor: pointer;
+    }
+    img:hover {
+        cursor: pointer;
+        -webkit-filter: drop-shadow(#273746 2px 5px 5px);
+        -o-filter: drop-shadow(#273746 2px 5px 5px);
+        -ms-filter: drop-shadow(#273746 2px 5px 5px);
+        -moz-filter: drop-shadow(#273746 2px 5px 5px);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        -webkit-transition: all 0.6s ease;
+        -moz-transition: all 0.6s ease;
+        -o-transition: all 0.6s ease;
+        -ms-transition: all 0.6s ease;
     }
 
 }
@@ -98,7 +114,7 @@ span.bold {
     h3 {
         font-family: 'Bebas Neue', 'Arial', cursive;
         font-size: 25px;
-        color: $main-header-color;
+        color: #45B39D;
     }
     p {
         font-family:  'Cabin', 'Arial', sans-serif;
@@ -131,4 +147,8 @@ span.bold {
     float: right;
     font-size: 30px;
     font-family: 'Bebas Neue', 'Arial', cursive;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
 }

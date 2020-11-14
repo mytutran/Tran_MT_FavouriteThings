@@ -6,10 +6,14 @@ import { fetchData, postData } from "./modules/DataMiner.js";
         itemDesc = document.querySelector(".itemInfo p");
 
 
+    // Pop that error boi
+    function errorMsg() {
+        alert("Mission failed! Can't connect. Better luck next time.");
+    }
+
     // Handle the data and render the stuff 
 
     function handleIt(data) {
-        console.log(data);
         let theName = data[0].name,
             theDesc = data[0].description;
         itemTitle.textContent = theName;
@@ -56,7 +60,7 @@ import { fetchData, postData } from "./modules/DataMiner.js";
         itemSection.addEventListener("click", retrieveItems);
     }
 
-    fetchData("./includes/index.php").then(data => renderThumbnails(data)).catch(err => console.log(err));
+    fetchData("./includes/index.php").then(data => renderThumbnails(data)).catch(err => errorMsg(err));
 
 
 })();
