@@ -13,7 +13,7 @@ Check out the :arrow_right:[Roadmap](https://docs.google.com/document/d/1VTm51_Y
 :heavy_exclamation_mark:IMPORTANT:heavy_exclamation_mark:: Import `evans_favourites.sql` inside `includes` folder before opening `index.html` to check stuff out. For things to work, database's name has to be `evans_favourites` and table's name has to be `favourites`!
 - Clone this project into your `localhost` root folder.
 - Before opening `index.html`, make sure to import the database inside `includes` folder. (:heavy_exclamation_mark:Check out IMPORTANT message before installing!)
-- You're ready! Check the website out by opening `index.html` with a browser that works well with interactive and responsive designs. (Check out [Google Chrome](https://www.google.com/chrome/).).
+- You're ready! Check the website out by opening `index.html` with a browser that works well with interactive and responsive designs. (Check out [Google Chrome](https://www.google.com/chrome/)).
 - Check out the codes by using a Code Editor: [VsCode](https://code.visualstudio.com/), [SublimeText](https://www.sublimetext.com/), or [Atom](https://atom.io/).
 
 ## Technologies:computer:
