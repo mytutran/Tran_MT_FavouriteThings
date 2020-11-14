@@ -11,6 +11,7 @@ body.expanded {
     background-color: black;
     img {
         filter: brightness(0.6);
+        pointer-events: none;
     }
 }
 
@@ -46,6 +47,7 @@ header {
 
 span.bold {
     font-weight: 500;
+    font-size: 18px;
 }
 
 #itemsSection {
@@ -76,10 +78,10 @@ span.bold {
     padding: 20vw;
     opacity: 0.9;
     transition: all 1s ease;
-    bottom: 50vh;
+    bottom: 0;
     left: 0;
     right: 0;
-    transform: translateX(-0px);
+    transform: translateY(0px);
     z-index: 999;
     
     h3 {
@@ -104,9 +106,10 @@ span.bold {
     position: fixed;
     display: block;
     padding: 10vw;
-    transform: translateX(-500px);
+    transform: translateY(150vh);
     left:0;
     right: 0;
+    bottom: 0;
 }
 
 .closeButton {

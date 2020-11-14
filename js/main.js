@@ -5,6 +5,9 @@ import { fetchData, postData } from "./modules/DataMiner.js";
         closeButton = document.querySelector(".closeButton"),
         itemDesc = document.querySelector(".itemInfo p");
 
+
+    // Handle the data and render the stuff 
+
     function handleIt(data) {
         console.log(data);
         let theName = data[0].name,
@@ -14,6 +17,8 @@ import { fetchData, postData } from "./modules/DataMiner.js";
         itemBox.classList.add("expanded");
         document.body.classList.add("expanded");
     }
+
+    // This function closes the box so users can scroll again :P
 
     function closeBox() {
         itemBox.classList.remove("expanded");
@@ -30,8 +35,6 @@ import { fetchData, postData } from "./modules/DataMiner.js";
         fetchData(`./includes/index.php?id=${event.target.id}`).then(data => handleIt(data)).catch(err => console.log(err));
     }
 
-    // closeButton.addEventListener("click", closeIt);
-
     function renderThumbnails(thumbs) {
         let itemSection = document.querySelector('#itemsSection'),
             itemTemplate = document.querySelector('#itemsContainer').content;
@@ -41,6 +44,8 @@ import { fetchData, postData } from "./modules/DataMiner.js";
                 currentContent = currentItem.querySelector('.item').children;
             currentContent[0].src = `images/${thumbs[item].image}`;
             currentContent[0].id = thumbs[item].id;
+            // I found another approach to render the data out so imma go with that one instead.
+
             // let itemName = currentContent[1].querySelector('h3'),
             //     itemDesc = currentContent[1].querySelector('p');
             // itemName.textContent = `${thumbs[item].name}`;
