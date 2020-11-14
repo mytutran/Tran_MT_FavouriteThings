@@ -2,7 +2,8 @@
 
 ### Changing Content With AJAX
 ![Like](images/heart.png)
-- Pick 3 things you love and create an app that showcases those things. Design a database
+### Introduction
+Pick 3 things you love and create an app that showcases those things. Design a database
 that contains at least 4 columns and include an image of some kind and descriptive
 data about each of those things.
 
