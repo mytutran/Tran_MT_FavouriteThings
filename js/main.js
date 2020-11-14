@@ -1,27 +1,36 @@
 import { fetchData, postData } from "./modules/DataMiner.js";
 (() => {
+    let itemBox = document.querySelector(".itemInfo"),
+        itemTitle = document.querySelector(".itemInfo h3"),
+        closeButton = document.querySelector(".closeButton"),
+        itemDesc = document.querySelector(".itemInfo p");
 
+    function handleIt(data) {
+        console.log(data);
+        let theName = data[0].name,
+            theDesc = data[0].description;
+        itemTitle.textContent = theName;
+        itemDesc.textContent = theDesc;
+        itemBox.classList.add("expanded");
+        document.body.classList.add("expanded");
+    }
+
+    function closeBox() {
+        itemBox.classList.remove("expanded");
+        document.body.classList.remove("expanded");
+    }
+
+    closeButton.addEventListener("click", closeBox);
 
     function retrieveItems(event) {
-        let currentID = event.target.id,
-            currentPick = event.target.parentNode,
-            itemInfo = currentPick.childNodes[3],
-            infoExpanded = false;
+        let currentID = event.target.id;
         if (!currentID) {
             return
         }
-        if (!infoExpanded) {
-            itemInfo.classList.add("expanded");
-            itemInfo.classList.remove("unExpanded");
-            infoExpanded = true;
-        } else {
-            infoExpanded = false;
-            itemInfo.classList.remove("expanded");
-            itemInfo.classList.add("unExpanded");
-        }
-        debugger;
-        // fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
+        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => handleIt(data)).catch(err => console.log(err));
     }
+
+    // closeButton.addEventListener("click", closeIt);
 
     function renderThumbnails(thumbs) {
         let itemSection = document.querySelector('#itemsSection'),
@@ -32,10 +41,10 @@ import { fetchData, postData } from "./modules/DataMiner.js";
                 currentContent = currentItem.querySelector('.item').children;
             currentContent[0].src = `images/${thumbs[item].image}`;
             currentContent[0].id = thumbs[item].id;
-            let itemName = currentContent[1].querySelector('h3'),
-                itemDesc = currentContent[1].querySelector('p');
-            itemName.textContent = `${thumbs[item].name}`;
-            itemDesc.textContent = `${thumbs[item].description}`;
+            // let itemName = currentContent[1].querySelector('h3'),
+            //     itemDesc = currentContent[1].querySelector('p');
+            // itemName.textContent = `${thumbs[item].name}`;
+            // itemDesc.textContent = `${thumbs[item].description}`;
 
             itemSection.appendChild(currentItem);
         }
@@ -43,5 +52,6 @@ import { fetchData, postData } from "./modules/DataMiner.js";
     }
 
     fetchData("./includes/index.php").then(data => renderThumbnails(data)).catch(err => console.log(err));
+
 
 })();
